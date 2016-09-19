@@ -30,7 +30,7 @@ The library requires Android **API Level 14+**.
 Add a dependency to your `build.gradle`:
 ```
 dependencies {
-    compile 'com.github.FernandaAbreu:FloatingActionButton:v1.6.4'
+    compile 'com.github.FernandaAbreu:FloatingActionButton:v1.6.5'
 }
 ```
 Add the `com.github.clans.fab.FloatingActionButton` to your layout XML file.
