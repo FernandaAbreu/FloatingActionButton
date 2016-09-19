@@ -25,6 +25,7 @@ import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
+import android.support.graphics.drawable.VectorDrawableCompat;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -133,7 +134,18 @@ public class FloatingActionButton extends ImageButton {
         mProgressBackgroundColor = attr.getColor(R.styleable.FloatingActionButton_fab_progress_backgroundColor, 0x4D000000);
         mProgressMax = attr.getInt(R.styleable.FloatingActionButton_fab_progress_max, mProgressMax);
         mShowProgressBackground = attr.getBoolean(R.styleable.FloatingActionButton_fab_progress_showBackground, true);
-
+        if (attr.hasValue(R.styleable.FloatingActionButton_fab_srcCompat)){
+            final int id = attr.getResourceId(R.styleable.FloatingActionButton_fab_srcCompat, -1);
+            if (id != -1) {
+                Drawable d;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    d = context.getDrawable(id);
+                }else{
+                    d = VectorDrawableCompat.create(context.getResources(), id, null);
+                }
+                setImageDrawable(d);
+            }
+        }
         if (attr.hasValue(R.styleable.FloatingActionButton_fab_progress)) {
             mProgress = attr.getInt(R.styleable.FloatingActionButton_fab_progress, 0);
             mShouldSetProgress = true;

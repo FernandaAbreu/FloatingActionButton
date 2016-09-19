@@ -135,7 +135,7 @@
             android:id="@+id/fab14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_star"
+            fab:fab_srcCompat="@drawable/ic_apps_black_24dp"
             style="@style/MenuButtonsSmall" />
 
         <com.github.clans.fab.FloatingActionButton
